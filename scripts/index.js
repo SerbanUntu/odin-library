@@ -24,13 +24,16 @@ function addBook(title, author, pages, read) {
     `
       <img class="cover-img" src="./images/book.png" alt="Book cover art placeholder">
       <div class="card-content">
-        <h1 class="title-text" title="Title: ${title}">${title}</h1>
+        <h2 class="title-text" title="Title: ${title}">${title}</h2>
         <p class="author-text" title="Author: ${author}">by <span class="underline">${author}</span></p>
-        <p class="pages-text"><span class="number-of-pages">${pages}</span> pages</p>
-        <p class="read-status">${read ? 'read' : 'not read'}</p>
+        <p class="pages-text" title="Number of pages: ${pages}"><span class="number-of-pages">${pages}</span> pages</p>
+        <div class="read-section">
+          <div class="read-icon"></div>
+          <p class="read-status" data-read="${read}">You have not read this book yet</p>
+        </div>
         <div class="buttons">
-          <button class="delete-book">Delete</button>
-          <button class="read-book">Read</button>
+          <button class="delete-book" type="button">Delete</button>
+          <button class="read-book" type="button">Read</button>
         </div>
       </div>
     `;
@@ -39,19 +42,21 @@ function addBook(title, author, pages, read) {
   gridDOM.insertBefore(newCardDOM, newBookButtonDOM);
   const deleteBookButtonDOM = newCardDOM.querySelector('.delete-book');
   const readBookButtonDOM = newCardDOM.querySelector('.read-book');
-  const readStatus = newCardDOM.querySelector('.read-status');
+  const readStatusDOM = newCardDOM.querySelector('.read-status');
 
-  deleteBookButtonDOM.addEventListener('click', (e) => {
-    e.preventDefault();
-    library.splice(newCardDOM.dataset.index, 1);
+  deleteBookButtonDOM.addEventListener('click', () => {
+    let index = newCardDOM.dataset.index;
+    library.splice(index, 1);
     newCardDOM.remove();
   });
 
-  readBookButtonDOM.addEventListener('click', (e) => {
-    e.preventDefault();
-    library[newCardDOM.dataset.index].read = !library[newCardDOM.dataset.index].read;
-    readStatus.textContent = library[newCardDOM.dataset.index].read ? 'read' : 'not read';
-  })
+  readBookButtonDOM.addEventListener('click', () => {
+    let index = newCardDOM.dataset.index;
+    library[index].read = !library[index].read;
+    readStatusDOM.textContent = library[index].read ? 'You have read this book' : 'You have not read this book yet';
+    readStatusDOM.dataset.read = readStatusDOM.dataset.read === 'false' ? 'true' : 'false';
+    readBookButtonDOM.textContent = library[index].read ? 'Unread' : 'Read';
+  });
 }
 
 newBookButtonDOM.addEventListener('click', (e) => {

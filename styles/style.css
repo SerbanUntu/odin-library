@@ -37,12 +37,17 @@ p, h1, h2, h3, h4, h5, h6 {
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
   background: var(--background);
   color: var(--text);
+}
+
+p {
+  color: var(--text-de);
 }
 
 dialog {
@@ -135,6 +140,7 @@ button {
   justify-content: center;
   font-size: 2rem;
   font-weight: 800;
+  text-transform: uppercase;
   color: var(--text-de);
 
   &:hover {
@@ -152,12 +158,10 @@ button {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  * {
-    flex: 1;
-  }
+  gap: 1rem;
 }
 
-.card * {
+.card h2, .card p, .card span {
   overflow-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -176,12 +180,7 @@ button {
 }
 
 .author-text {
-  color: var(--text-de);
   text-align: right;
-}
-
-.pages-text {
-  color: var(--text-de);
 }
 
 .number-of-pages {
@@ -189,9 +188,23 @@ button {
   font-weight: 800;
 }
 
-.read-status {
-  text-transform: uppercase;
-  color: var(--text-de);
+.read-section {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.read-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.read-icon:has(~ .read-status[data-read="true"]) {
+  background-image: url('../images/read.svg');
+}
+
+.read-icon:has(~ .read-status[data-read="false"]) {
+  background-image: url('../images/not-read.svg');
 }
 
 .underline {
@@ -201,7 +214,8 @@ button {
 .buttons {
   display: flex;
   gap: .5rem;
-  * {
+
+  > * {
     flex: 1;
   }
 }
