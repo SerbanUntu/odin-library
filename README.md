@@ -1,1 +1,3 @@
-# odin-library
+# Odin library
+## About
+## What I learned
