@@ -1,3 +1,13 @@
+:root {
+  --card: hsl(220deg 20% 100%);
+  --background: hsl(220deg 20% 90%);
+  --hover-button: hsl(220deg 20% 80%);
+  --text: hsl(220deg 20% 10%);
+  --text-de: hsl(220deg 20% 60%);
+  --red: hsl(5deg 80% 60%);
+  --shadow: 0px 0px 5px 1px #00000020;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -25,29 +35,170 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-size: 14px;
   width: 100vw;
   height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  background: var(--background);
+  color: var(--text);
 }
 
 dialog {
-  border: 2px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: none;
+  border-radius: .5rem;
+  background: var(--card);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 400ms ease;
 }
 
 dialog::backdrop {
   background: #00000050;
 }
 
-.header {
-  position: sticky;
+form {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: .5rem;
+  row-gap: 2rem;
+}
+
+label {
+  justify-self: end;
+  line-height: 2;
+}
+
+input {
+  width: 400px;
+  border: 1px solid var(--text-de);
+
+  &:focus {
+    border-color: var(--text);
+    outline: none;
+  }
+}
+
+button {
+  border: none;
+  padding: .5rem 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  background: var(--background);
+  &:hover, &:focus {
+    outline: none;
+    background: var(--hover-button);
+  }
+}
+
+.submit-form {
+  grid-column: span 2;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.card {
-  border: 1px solid black;
+.card, .new-book {
   border-radius: .5rem;
+  background: var(--card);
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 400ms ease;
+  display: flex;
+  height: calc(2rem + 200px);
+
+  &:hover, &:focus {
+    transform: scale(1.025);
+  }
+}
+
+.new-book {
+  opacity: 0.5;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-de);
+
+  &:hover, &:focus {
+    background: var(--card);
+    opacity: 1;
+  }
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  * {
+    flex: 1;
+  }
+}
+
+.card * {
+  overflow-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+}
+
+.title-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.author-text {
+  color: var(--text-de);
+  text-align: right;
+}
+
+.pages-text {
+  color: var(--text-de);
+}
+
+.number-of-pages {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.read-status {
+  text-transform: uppercase;
+  color: var(--text-de);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  gap: .5rem;
+  * {
+    flex: 1;
+  }
+}
+
+.delete-book:hover, .delete-book:focus {
+  background: var(--red);
+  color: var(--card);
 }
