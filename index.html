@@ -7,6 +7,28 @@
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+  <header class="header">
+    <button class="new-book">NEW BOOK</button>
+  </header>
+  <main class="grid">
+  </main>
+  <dialog>
+    <form action="#" method="">
+      <article>
+        <label for="book-name">Name:</label>
+        <input id="book-name" class="book-name" name="book-name" type="text" required>
+      </article>
+      <article>
+        <label for="book-author">Author:</label>
+        <input id="book-author" class="book-author" name="book-author" type="text" required>
+      </article>
+      <article>
+        <label for="book-pages">Pages:</label>
+        <input id="book-pages" class="book-pages" name="book-pages" type="number" required>
+      </article>
+      <button type="submit" class="submit-form">Add</button>
+    </form>
+  </dialog>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
