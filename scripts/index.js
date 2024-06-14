@@ -1,6 +1,7 @@
 const gridDOM = document.querySelector('.grid');
 const newBookButtonDOM = document.querySelector('.new-book');
 const dialogDOM = document.querySelector('dialog');
+const formDOM = document.querySelector('form');
 const submitFormButtonDOM = document.querySelector('.submit-form');
 const inputNameDOM = document.querySelector('input.book-name');
 const inputAuthorDOM = document.querySelector('input.book-author');
@@ -55,15 +56,13 @@ function addBook(title, author, pages, read) {
 
 newBookButtonDOM.addEventListener('click', (e) => {
   e.preventDefault();
-  inputNameDOM.value = '';
-  inputAuthorDOM.value = '';
-  inputPagesDOM.value = '';
+  formDOM.reset();
   dialogDOM.showModal();
 });
 
 submitFormButtonDOM.addEventListener('click', (e) => {
-  e.preventDefault();
-  if(inputNameDOM.value && inputAuthorDOM.value && inputPagesDOM.value && !isNaN(+inputPagesDOM.value) && inputNameDOM.value.length <= 50 && inputAuthorDOM.value.length <= 50 && inputPagesDOM.value.length <= 5) {
+  if(formDOM.checkValidity()) {
+    e.preventDefault();
     addBook(inputNameDOM.value, inputAuthorDOM.value, +inputPagesDOM.value, false);
     dialogDOM.close();
   }

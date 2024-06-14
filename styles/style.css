@@ -84,6 +84,10 @@ input {
   }
 }
 
+input:user-invalid {
+  border-color: var(--red);
+}
+
 button {
   border: none;
   padding: .5rem 2rem;
@@ -133,9 +137,13 @@ button {
   font-weight: 800;
   color: var(--text-de);
 
-  &:hover, &:focus {
+  &:hover {
     background: var(--card);
     opacity: 1;
+  }
+
+  &:focus {
+    background: var(--card);
   }
 }
 
