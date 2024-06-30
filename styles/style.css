@@ -1,226 +1,226 @@
 :root {
-  --card: hsl(220deg 20% 100%);
-  --background: hsl(220deg 20% 90%);
-  --hover-button: hsl(220deg 20% 80%);
-  --text: hsl(220deg 20% 10%);
-  --text-de: hsl(220deg 20% 60%);
-  --red: hsl(5deg 80% 60%);
-  --shadow: 0px 0px 5px 1px #00000020;
+	--card: hsl(220deg 20% 100%);
+	--background: hsl(220deg 20% 90%);
+	--hover-button: hsl(220deg 20% 80%);
+	--text: hsl(220deg 20% 10%);
+	--text-de: hsl(220deg 20% 60%);
+	--red: hsl(5deg 80% 60%);
+	--shadow: 0px 0px 5px 1px #00000020;
 }
 
 *, *::before, *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 * {
-  margin: 0;
+	margin: 0;
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
 
 img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 input, button, textarea, select {
-  font: inherit;
+	font: inherit;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  background: var(--background);
-  color: var(--text);
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: normal;
+	background: var(--background);
+	color: var(--text);
 }
 
 p {
-  color: var(--text-de);
+	color: var(--text-de);
 }
 
 dialog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border: none;
-  border-radius: .5rem;
-  background: var(--card);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: all 400ms ease;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	border: none;
+	border-radius: .5rem;
+	background: var(--card);
+	padding: 2rem;
+	box-shadow: var(--shadow);
+	transition: all 400ms ease;
 }
 
 dialog::backdrop {
-  background: #00000050;
+	background: #00000050;
 }
 
 form {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: .5rem;
-  row-gap: 2rem;
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	column-gap: .5rem;
+	row-gap: 2rem;
 }
 
 label {
-  justify-self: end;
-  line-height: 2;
+	justify-self: end;
+	line-height: 2;
 }
 
 input {
-  width: 400px;
-  border: 1px solid var(--text-de);
+	width: 400px;
+	border: 1px solid var(--text-de);
 
-  &:focus {
-    border-color: var(--text);
-    outline: none;
-  }
+	&:focus {
+		border-color: var(--text);
+		outline: none;
+	}
 }
 
-input:user-invalid {
-  border-color: var(--red);
+input.invalid {
+	border-color: var(--red);
 }
 
 button {
-  border: none;
-  padding: .5rem 2rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  background: var(--background);
-  &:hover, &:focus {
-    outline: none;
-    background: var(--hover-button);
-  }
+	border: none;
+	padding: .5rem 2rem;
+	border-radius: 9999px;
+	cursor: pointer;
+	background: var(--background);
+	&:hover, &:focus {
+		outline: none;
+		background: var(--hover-button);
+	}
 }
 
 .submit-form {
-  grid-column: span 2;
+	grid-column: span 2;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	gap: 2rem;
+	padding: 2rem;
 }
 
 .card, .new-book {
-  border-radius: .5rem;
-  background: var(--card);
-  padding: 1rem;
-  gap: 1rem;
-  box-shadow: var(--shadow);
-  transition: all 400ms ease;
-  display: flex;
-  height: calc(2rem + 200px);
+	border-radius: .5rem;
+	background: var(--card);
+	padding: 1rem;
+	gap: 1rem;
+	box-shadow: var(--shadow);
+	transition: all 400ms ease;
+	display: flex;
+	height: calc(2rem + 200px);
 
-  &:hover, &:focus {
-    transform: scale(1.025);
-  }
+	&:hover, &:focus {
+		transform: scale(1.025);
+	}
 }
 
 .new-book {
-  opacity: 0.5;
-  border: none;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--text-de);
+	opacity: 0.5;
+	border: none;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: var(--text-de);
 
-  &:hover {
-    background: var(--card);
-    opacity: 1;
-  }
+	&:hover {
+		background: var(--card);
+		opacity: 1;
+	}
 
-  &:focus {
-    background: var(--card);
-  }
+	&:focus {
+		background: var(--card);
+	}
 }
 
 .card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  gap: 1rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	gap: 1rem;
 }
 
 .card h2, .card p, .card span {
-  overflow-wrap: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	overflow-wrap: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .card img {
-  width: 200px;
-  height: 200px;
+	width: 200px;
+	height: 200px;
 }
 
 .title-text {
-  font-size: 1.25rem;
-  font-weight: 800;
-  text-align: center;
+	font-size: 1.25rem;
+	font-weight: 800;
+	text-align: center;
 }
 
 .author-text {
-  text-align: right;
+	text-align: right;
 }
 
 .number-of-pages {
-  color: var(--text);
-  font-weight: 800;
+	color: var(--text);
+	font-weight: 800;
 }
 
 .read-section {
-  display: flex;
-  gap: .5rem;
-  align-items: center;
+	display: flex;
+	gap: .5rem;
+	align-items: center;
 }
 
 .read-icon {
-  width: 24px;
-  height: 24px;
+	width: 24px;
+	height: 24px;
 }
 
 .read-icon:has(~ .read-status[data-read="true"]) {
-  background-image: url('../images/read.svg');
+	background-image: url('../images/read.svg');
 }
 
 .read-icon:has(~ .read-status[data-read="false"]) {
-  background-image: url('../images/not-read.svg');
+	background-image: url('../images/not-read.svg');
 }
 
 .underline {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .buttons {
-  display: flex;
-  gap: .5rem;
+	display: flex;
+	gap: .5rem;
 
-  > * {
-    flex: 1;
-  }
+	> * {
+		flex: 1;
+	}
 }
 
 .delete-book:hover, .delete-book:focus {
-  background: var(--red);
-  color: var(--card);
+	background: var(--red);
+	color: var(--card);
 }
